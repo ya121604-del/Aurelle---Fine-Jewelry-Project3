@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aurelle — Fine Jewelry</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ============ HEADER / NAV ============ -->
+<header class="site-header">
+  <div class="header-inner">
+    <a href="#top" class="logo">Aurelle</a>
+
+    <nav class="main-nav" id="mainNav">
+      <a href="#collection">Collection</a>
+      <a href="#interactive">Craftsmanship</a>
+      <a href="#cart-section">Cart</a>
+    </nav>
+
+    <div class="header-actions">
+      <button id="themeToggle" class="icon-btn" aria-label="Toggle dark mode" title="Toggle dark / light mode">
+        <span id="themeIcon">☾</span>
+      </button>
+      <button id="wishlistNavBtn" class="icon-btn" aria-label="View wishlist">
+        ♡ <span id="wishlistCount" class="badge">0</span>
+      </button>
+      <button id="cartNavBtn" class="icon-btn" aria-label="View cart">
+        Bag <span id="cartCount" class="badge">0</span>
+      </button>
+      <button id="navToggle" class="nav-toggle" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="top">
+  <div class="hero-inner">
+    <div class="hero-copy">
+      <p class="hero-kicker">Est. Karachi — worked by hand</p>
+      <h1>Jewelry that holds<br>a quiet weight.</h1>
+      <p class="hero-sub">Aurelle pieces are cast in 18k gold and set with hand-selected stones, each one finished by a single goldsmith from first sketch to final polish.</p>
+      <div class="hero-actions">
+        <button class="btn-primary" id="heroShopBtn">View the collection</button>
+        <button class="btn-ghost" id="heroStoryBtn">Our process</button>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <img src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?q=80&w=1200&auto=format&fit=crop" alt="Gold ring with a central diamond, resting on dark stone">
+      <div class="hero-visual-caption">The Solmara Ring — 18k gold, 0.6ct center stone</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CATEGORY FILTER ============ -->
+<section class="category-bar" id="collection">
+  <div class="section-inner">
+    <div class="section-head">
+      <h2>The collection</h2>
+      <p class="section-sub">Filter by piece. Every item below responds — try it.</p>
+    </div>
+    <div class="filter-row" id="filterRow" role="group" aria-label="Filter products by category">
+      <button class="filter-btn active" data-category="all">All pieces</button>
+      <button class="filter-btn" data-category="rings">Rings</button>
+      <button class="filter-btn" data-category="necklaces">Necklaces</button>
+      <button class="filter-btn" data-category="earrings">Earrings</button>
+      <button class="filter-btn" data-category="bracelets">Bracelets</button>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PRODUCT GRID ============ -->
+<section class="products-section">
+  <div class="section-inner">
+    <div class="product-grid" id="productGrid">
+      <!-- Product cards injected by script.js -->
+    </div>
+    <p class="empty-state" id="emptyState" hidden>No pieces in this category yet — check back soon.</p>
+  </div>
+</section>
+
+<!-- ============ PRODUCT DETAIL PANEL (interactive) ============ -->
+<section class="interactive-section" id="interactive">
+  <div class="section-inner detail-layout">
+    <div class="detail-image">
+      <img id="detailImage" src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?q=80&w=1200&auto=format&fit=crop" alt="Selected jewelry piece">
+    </div>
+
+    <div class="detail-info">
+      <p class="detail-kicker" id="detailCategory">Ring</p>
+      <h2 id="detailName">The Solmara Ring</h2>
+      <p class="detail-price" id="detailPrice">$1,240</p>
+      <p class="detail-desc" id="detailDesc">Select a piece from the collection above to see its full details here.</p>
+
+      <div class="qty-row">
+        <span class="qty-label">Quantity</span>
+        <div class="qty-control">
+          <button id="qtyMinus" aria-label="Decrease quantity">−</button>
+          <span id="qtyValue">1</span>
+          <button id="qtyPlus" aria-label="Increase quantity">+</button>
+        </div>
+      </div>
+
+      <div class="detail-actions">
+        <button class="btn-primary" id="addToCartBtn">Add to bag</button>
+        <button class="btn-wishlist" id="wishlistBtn" aria-pressed="false">
+          <span id="wishlistIcon">♡</span> Save
+        </button>
+      </div>
+
+      <p class="detail-note" id="detailNote"></p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CART SUMMARY ============ -->
+<section class="cart-section" id="cart-section">
+  <div class="section-inner">
+    <div class="section-head">
+      <h2>Your bag</h2>
+      <p class="section-sub">Everything you've added, ready when you are.</p>
+    </div>
+
+    <div class="cart-layout">
+      <div class="cart-list" id="cartList">
+        <p class="cart-empty" id="cartEmptyMsg">Your bag is empty — add a piece from the collection.</p>
+      </div>
+
+      <div class="cart-summary">
+        <div class="summary-row">
+          <span>Subtotal</span>
+          <span id="cartSubtotal">$0</span>
+        </div>
+        <div class="summary-row">
+          <span>Craftsmanship &amp; care</span>
+          <span id="cartCare">$0</span>
+        </div>
+        <div class="summary-row summary-total">
+          <span>Total</span>
+          <span id="cartTotal">$0</span>
+        </div>
+        <button class="btn-primary btn-checkout" id="checkoutBtn">Checkout</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <p class="logo">Aurelle</p>
+      <p>Fine jewelry, made by hand in small batches.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Shop</h4>
+      <a href="#collection">Rings</a>
+      <a href="#collection">Necklaces</a>
+      <a href="#collection">Earrings</a>
+      <a href="#collection">Bracelets</a>
+    </div>
+    <div class="footer-col">
+      <h4>Studio</h4>
+      <a href="#interactive">Our process</a>
+      <a href="#cart-section">Your bag</a>
+    </div>
+  </div>
+  <p class="footer-bottom">© 2026 Aurelle Jewelry. All rights reserved.</p>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
